@@ -1,0 +1,109 @@
+/* ==UserStyle==
+@name           Kurumi-Theme: Nightmare (Dark)
+@namespace      github.com/kurumi-desk
+@version        1.1.0
+@description    Tokisaki Kurumi dark theme for GitHub — crimson & black
+@author         Andrés
+@license        MIT
+@homepageURL    https://github.com/tu-usuario/kurumi-theme-github
+==/UserStyle== */
+
+@-moz-document regexp("^https?://((education|gist|graphql|guides|help|lab|raw|resources|status|developer|support|vscode-auth)\\.)?github\\.com/((?!generated_pages/preview).)*$"),
+               domain("githubusercontent.com"),
+               domain("www.githubstatus.com") {
+
+  :root {
+    /* ── Fondos ─────────────────────────────────────────── */
+    --color-bg-canvas: #050000 !important;
+    --color-canvas-inset: #0f0f0f !important;
+    --color-canvas-overlay: #0a0000 !important;
+    --color-bg-primary: #050000 !important;
+    --color-bg-secondary: #0f0f0f !important;
+    --color-bg-tertiary: #0a0000 !important;
+    --color-canvas-subtle: #0f0f0f !important;
+    --color-bg-discussions-row-emoji-box: #0f0f0f !important;
+    --color-workflow-card-bg: #0f0f0f !important;
+    --color-calendar-graph-day-bg: #0f0f0f !important;
+    --color-checks-step-header-open-bg: #0f0f0f !important;
+
+    /* ── Texto ──────────────────────────────────────────── */
+    --color-fg-default: #ffb8c6 !important;
+    --color-fg-muted: #a67c85 !important;
+    --color-text-primary: #ffb8c6 !important;
+    --color-text-link: #ff003c !important;
+    --color-text-secondary: #a67c85 !important;
+
+    /* ── Acento ─────────────────────────────────────────── */
+    --color-accent-fg: #ff003c !important;
+    --color-accent-subtle: #2a0008 !important;
+    --color-btn-primary-bg: #ff003c !important;
+    --color-btn-primary-hover-bg: #cc0030 !important;
+    --color-btn-primary-fg: #050000 !important;
+    --color-btn-primary-icon: #050000 !important;
+    --color-btn-primary-border: #ff003c !important;
+
+    /* ── Botones ────────────────────────────────────────── */
+    --color-btn-bg: #0f0f0f !important;
+    --color-btn-hover-bg: #1a0a0a !important;
+    --color-btn-border: #4a1a24 !important;
+    --color-btn-text: #ffb8c6 !important;
+    --color-btn-counter-bg: #2a0008 !important;
+
+    /* ── Bordes ─────────────────────────────────────────── */
+    --color-border-default: #4a1a24 !important;
+    --color-border-muted: #331111 !important;
+    --color-border-subtle: #2a0008 !important;
+    --color-avatar-border: transparent !important;
+
+    /* ── Estados ────────────────────────────────────────── */
+    --color-attention-subtle: #2a0008 !important;
+    --color-attention-muted: #4a1a24 !important;
+    --color-danger-fg: #ff003c !important;
+    --color-danger-emphasis: #ff003c !important;
+    --color-success-fg: #E3B341 !important;
+    --color-success-emphasis: #E3B341 !important;
+
+    /* ── Sombras ────────────────────────────────────────── */
+    --color-shadow-large: 0 8px 24px #000000 !important;
+    --color-shadow-medium: 0 3px 6px #000000 !important;
+    --color-shadow-small: 0 1px 0 #000000 !important;
+
+    /* ── Extras ─────────────────────────────────────────── */
+    --color-previewable-comment-form-bg: #0f0f0f !important;
+    --color-avatar-bg: #0f0f0f !important;
+    --color-user-mention-bg: #2a0008 !important;
+    --color-user-mention-fg: #ffb8c6 !important;
+    --color-search-hover-hl: #0f0f0f !important;
+    --color-current-user-tip-border: #0f0f0f !important;
+    --color-underlinenav-counter-text: #ffb8c6 !important;
+    --color-auto-gray-1: #0a0000 !important;
+    --color-auto-gray-3: #0a0000 !important;
+  }
+
+  body { background: var(--color-bg-canvas) !important; }
+  .Header, .header { background: #0a0000 !important; border-bottom: 1px solid #4a1a24 !important; }
+  .markdown-body { color: #ffb8c6 !important; }
+  .markdown-body a { color: #ff003c !important; }
+  pre, code { background: #0f0f0f !important; border-color: #331111 !important; color: #ffb8c6 !important; }
+
+  ::-webkit-scrollbar { width: 10px; background: #050000; }
+  ::-webkit-scrollbar-thumb { background: #4a1a24; border-radius: 5px; }
+  ::-webkit-scrollbar-thumb:hover { background: #ff003c; }
+
+  /* Sticker */
+  .application-main::before {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 350px;
+    height: 350px;
+    background-image: url('https://raw.githubusercontent.com/tu-usuario/kurumi-theme-github/main/assets/kurumi_sticker.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.95;
+  }
+}
