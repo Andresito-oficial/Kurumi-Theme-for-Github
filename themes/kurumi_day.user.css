@@ -1,109 +1,279 @@
 /* ==UserStyle==
 @name           Kurumi-Theme: Day (Light)
-@namespace      github.com/kurumi-desk
-@version        1.0.0
+@namespace      github.com/Andresito-oficial
+@version        2.0.0
 @description    Tokisaki Kurumi light theme for GitHub — rose & white
 @author         Andrés
 @license        MIT
-@homepageURL    https://github.com/tu-usuario/kurumi-theme-github
+@homepageURL    https://github.com/Andresito-oficial/Kurumi-Theme-for-Github
 ==/UserStyle== */
 
 @-moz-document regexp("^https?://((education|gist|graphql|guides|help|lab|raw|resources|status|developer|support|vscode-auth)\\.)?github\\.com/((?!generated_pages/preview).)*$"),
                domain("githubusercontent.com"),
                domain("www.githubstatus.com") {
 
-  :root {
-    /* ── Fondos ─────────────────────────────────────────── */
-    --color-bg-canvas: #ffffff !important;
+  /* ─── Variables base ─────────────────────────────────────── */
+  :root,
+  [data-color-mode="light"],
+  [data-color-mode="dark"],
+  [data-dark-theme="light"],
+  [data-light-theme="light"] {
+    color-scheme: light !important;
+
+    /* Canvas / fondos */
+    --color-canvas-default: #ffffff !important;
+    --color-canvas-subtle: #fdf7f8 !important;
     --color-canvas-inset: #fdf7f8 !important;
     --color-canvas-overlay: #ffffff !important;
+    --color-bg-canvas: #ffffff !important;
+    --color-bg-canvas-inset: #fdf7f8 !important;
+    --color-bg-canvas-overlay: #ffffff !important;
     --color-bg-primary: #ffffff !important;
     --color-bg-secondary: #fdf7f8 !important;
     --color-bg-tertiary: #fcf0f2 !important;
-    --color-canvas-subtle: #fdf7f8 !important;
-    --color-bg-discussions-row-emoji-box: #fdf7f8 !important;
-    --color-workflow-card-bg: #fdf7f8 !important;
-    --color-calendar-graph-day-bg: #fdf7f8 !important;
-    --color-checks-step-header-open-bg: #fdf7f8 !important;
+    --color-bg-inset: #fdf7f8 !important;
+    --color-bg-subtle: #fdf7f8 !important;
+    --color-bg-emphasis: #f0dce0 !important;
+    --color-bg-overlay: #ffffff !important;
+    --color-bg-disabled: #fcf0f2 !important;
+    --color-page-header-bg: #ffffff !important;
 
-    /* ── Texto ──────────────────────────────────────────── */
+    /* Texto */
     --color-fg-default: #2a0008 !important;
     --color-fg-muted: #734d55 !important;
+    --color-fg-subtle: #a67c85 !important;
+    --color-fg-on-emphasis: #ffffff !important;
     --color-text-primary: #2a0008 !important;
-    --color-text-link: #d91e42 !important;
     --color-text-secondary: #734d55 !important;
+    --color-text-tertiary: #a67c85 !important;
+    --color-text-link: #d91e42 !important;
+    --color-text-inverse: #ffffff !important;
+    --color-text-disabled: #c4a0a8 !important;
 
-    /* ── Acento ─────────────────────────────────────────── */
+    /* Acento */
     --color-accent-fg: #d91e42 !important;
+    --color-accent-emphasis: #d91e42 !important;
+    --color-accent-muted: #fcf0f2 !important;
     --color-accent-subtle: #fcf0f2 !important;
-    --color-btn-primary-bg: #d91e42 !important;
-    --color-btn-primary-hover-bg: #b01634 !important;
-    --color-btn-primary-fg: #ffffff !important;
-    --color-btn-primary-icon: #ffffff !important;
-    --color-btn-primary-border: #d91e42 !important;
 
-    /* ── Botones ────────────────────────────────────────── */
-    --color-btn-bg: #ffffff !important;
-    --color-btn-hover-bg: #fcf0f2 !important;
-    --color-btn-border: #e8c8d0 !important;
-    --color-btn-text: #2a0008 !important;
-    --color-btn-counter-bg: #fcf0f2 !important;
-
-    /* ── Bordes ─────────────────────────────────────────── */
+    /* Bordes */
     --color-border-default: #e8c8d0 !important;
     --color-border-muted: #f0dce0 !important;
     --color-border-subtle: #fcf0f2 !important;
+    --color-border-primary: #e8c8d0 !important;
+    --color-border-secondary: #f0dce0 !important;
+    --color-border-tertiary: #fcf0f2 !important;
+    --color-border-overlay: #e8c8d0 !important;
+    --color-border-inverse: #ffffff !important;
     --color-avatar-border: transparent !important;
 
-    /* ── Estados ────────────────────────────────────────── */
+    /* Botones */
+    --color-btn-text: #2a0008 !important;
+    --color-btn-bg: #ffffff !important;
+    --color-btn-border: #e8c8d0 !important;
+    --color-btn-hover-bg: #fcf0f2 !important;
+    --color-btn-hover-border: #d91e42 !important;
+    --color-btn-active-bg: #fcf0f2 !important;
+    --color-btn-active-border: #d91e42 !important;
+    --color-btn-selected-bg: #fcf0f2 !important;
+    --color-btn-counter-bg: #fcf0f2 !important;
+    --color-btn-primary-text: #ffffff !important;
+    --color-btn-primary-bg: #d91e42 !important;
+    --color-btn-primary-border: #d91e42 !important;
+    --color-btn-primary-hover-bg: #b01634 !important;
+    --color-btn-primary-hover-border: #b01634 !important;
+    --color-btn-primary-selected-bg: #8a0f28 !important;
+    --color-btn-primary-disabled-text: #ffffff !important;
+    --color-btn-primary-disabled-bg: #e8c8d0 !important;
+    --color-btn-primary-disabled-border: #e8c8d0 !important;
+    --color-btn-primary-icon: #ffffff !important;
+    --color-btn-danger-text: #2a0008 !important;
+    --color-btn-danger-bg: #ffffff !important;
+    --color-btn-danger-hover-bg: #fcf0f2 !important;
+    --color-btn-danger-hover-text: #d91e42 !important;
+
+    /* Inputs */
+    --color-input-bg: #ffffff !important;
+    --color-input-border: #e8c8d0 !important;
+    --color-input-contrast-bg: #fdf7f8 !important;
+    --color-input-disabled-bg: #fcf0f2 !important;
+    --color-input-disabled-border: #f0dce0 !important;
+    --color-input-checkbox-bg: #ffffff !important;
+    --color-input-warning-border: #b8860b !important;
+    --color-input-error-border: #d91e42 !important;
+
+    /* Estados / alerts */
+    --color-attention-fg: #b8860b !important;
+    --color-attention-emphasis: #b8860b !important;
+    --color-attention-muted: #fcf0f2 !important;
     --color-attention-subtle: #fcf0f2 !important;
-    --color-attention-muted: #e8c8d0 !important;
     --color-danger-fg: #d91e42 !important;
     --color-danger-emphasis: #d91e42 !important;
+    --color-danger-muted: #fcf0f2 !important;
+    --color-danger-subtle: #fcf0f2 !important;
     --color-success-fg: #b8860b !important;
     --color-success-emphasis: #b8860b !important;
+    --color-success-muted: #fcf0f2 !important;
+    --color-success-subtle: #fcf0f2 !important;
+    --color-done-fg: #d91e42 !important;
+    --color-done-emphasis: #d91e42 !important;
+    --color-alert-warn-bg: #fcf0f2 !important;
+    --color-alert-info-bg: #fdf7f8 !important;
+    --color-alert-error-bg: #fcf0f2 !important;
 
-    /* ── Sombras ────────────────────────────────────────── */
-    --color-shadow-large: 0 8px 24px rgba(0,0,0,0.1) !important;
+    /* Sombras */
+    --color-shadow-small: 0 1px 0 rgba(0,0,0,0.04) !important;
     --color-shadow-medium: 0 3px 6px rgba(0,0,0,0.08) !important;
-    --color-shadow-small: 0 1px 0 rgba(0,0,0,0.05) !important;
+    --color-shadow-large: 0 8px 24px rgba(0,0,0,0.1) !important;
+    --color-shadow-extra-large: 0 12px 28px rgba(0,0,0,0.12) !important;
+    --color-primer-shadow-focus: 0 0 0 3px #d91e4230 !important;
+    --color-primer-shadow-inset: inset 0 1px 0 rgba(0,0,0,0.04) !important;
 
-    /* ── Extras ─────────────────────────────────────────── */
+    /* Checks / actions */
+    --color-checks-bg: #fdf7f8 !important;
+    --color-checks-text-primary: #2a0008 !important;
+    --color-checks-text-secondary: #734d55 !important;
+    --color-checks-text-link: #d91e42 !important;
+    --color-checks-btn-icon: #734d55 !important;
+    --color-checks-btn-hover-icon: #2a0008 !important;
+    --color-checks-btn-hover-bg: #fcf0f2 !important;
+    --color-checks-input-text: #2a0008 !important;
+    --color-checks-input-placeholder-text: #a67c85 !important;
+    --color-checks-input-bg: #ffffff !important;
+    --color-checks-input-shadow: 0 0 0 1px #e8c8d0 !important;
+    --color-checks-dropdown-text: #2a0008 !important;
+    --color-checks-dropdown-bg: #ffffff !important;
+    --color-checks-dropdown-border: #e8c8d0 !important;
+    --color-checks-dropdown-hover-text: #2a0008 !important;
+    --color-checks-dropdown-hover-bg: #fcf0f2 !important;
+    --color-checks-scrollbar-thumb-bg: #e8c8d0 !important;
+    --color-checks-header-label-text: #2a0008 !important;
+    --color-checks-header-border: #f0dce0 !important;
+    --color-checks-header-icon: #734d55 !important;
+    --color-checks-line-text: #734d55 !important;
+    --color-checks-line-num-text: #a67c85 !important;
+    --color-checks-line-hover-bg: #fcf0f2 !important;
+    --color-checks-line-selected-bg: #fcf0f2 !important;
+    --color-checks-line-selected-num-text: #d91e42 !important;
+    --color-checks-step-header-open-bg: #fdf7f8 !important;
+    --color-checks-step-error-text: #d91e42 !important;
+    --color-checks-step-warning-text: #b8860b !important;
+    --color-checks-ansi-black: #2a0008 !important;
+    --color-checks-ansi-white: #ffffff !important;
+    --color-checks-ansi-gray: #a67c85 !important;
+    --color-checks-ansi-red: #d91e42 !important;
+    --color-checks-ansi-green: #b8860b !important;
+    --color-checks-ansi-yellow: #b8860b !important;
+    --color-checks-ansi-blue: #d91e42 !important;
+    --color-checks-ansi-magenta: #d91e42 !important;
+    --color-checks-ansi-cyan: #734d55 !important;
+
+    /* Calendario de contribuciones */
+    --color-calendar-graph-day-bg: #fcf0f2 !important;
+    --color-calendar-graph-day-border: #f0dce0 !important;
+    --color-calendar-graph-day-L1-bg: #f4c6d0 !important;
+    --color-calendar-graph-day-L1-border: #f4c6d0 !important;
+    --color-calendar-graph-day-L2-bg: #e89aa8 !important;
+    --color-calendar-graph-day-L2-border: #e89aa8 !important;
+    --color-calendar-graph-day-L3-bg: #d91e42 !important;
+    --color-calendar-graph-day-L3-border: #d91e42 !important;
+    --color-calendar-graph-day-L4-bg: #8a0f28 !important;
+    --color-calendar-graph-day-L4-border: #8a0f28 !important;
+
+    /* Notificaciones */
+    --color-notifications-row-read-bg: #fdf7f8 !important;
+    --color-notifications-row-bg: #ffffff !important;
+
+    /* Otros */
+    --color-verified-badge-bg: #ffffff !important;
+    --color-project-sidebar-bg: #fdf7f8 !important;
+    --color-workflow-card-bg: #fdf7f8 !important;
+    --color-bg-discussions-row-emoji-box: #fdf7f8 !important;
     --color-previewable-comment-form-bg: #fdf7f8 !important;
     --color-avatar-bg: #fdf7f8 !important;
     --color-user-mention-bg: #fcf0f2 !important;
     --color-user-mention-fg: #d91e42 !important;
     --color-search-hover-hl: #fcf0f2 !important;
-    --color-current-user-tip-border: #fdf7f8 !important;
+    --color-current-user-tip-border: #f0dce0 !important;
     --color-underlinenav-counter-text: #2a0008 !important;
     --color-auto-gray-1: #fcf0f2 !important;
     --color-auto-gray-3: #fcf0f2 !important;
+    --color-primer-fg-disabled: #c4a0a8 !important;
   }
 
-  body { background: var(--color-bg-canvas) !important; }
-  .Header, .header { background: #ffffff !important; border-bottom: 1px solid #e8c8d0 !important; }
+  [data-color-mode="light"][data-light-theme*="light"],
+  [data-color-mode="dark"][data-dark-theme*="light"] {
+    color-scheme: light !important;
+  }
+
+  /* ─── Ajustes finos ─────────────────────────────────────── */
+  body { background-color: #ffffff !important; }
+
+  .Header, .header, .AppHeader, [data-testid="top-nav"] {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #e8c8d0 !important;
+  }
+
+  .header-search-input, .form-control, .form-select {
+    background-color: #ffffff !important;
+    border-color: #e8c8d0 !important;
+    color: #2a0008 !important;
+  }
+
+  .octicon-mark-github { color: #d91e42 !important; }
+
   .markdown-body { color: #2a0008 !important; }
   .markdown-body a { color: #d91e42 !important; }
-  pre, code { background: #fdf7f8 !important; border-color: #f0dce0 !important; color: #2a0008 !important; }
 
+  pre, code, .blob-code, .blob-code-inner {
+    background-color: #fdf7f8 !important;
+    border-color: #f0dce0 !important;
+    color: #2a0008 !important;
+  }
+
+  /* CodeMirror */
+  .CodeMirror {
+    background-color: #fdf7f8 !important;
+    color: #2a0008 !important;
+  }
+  .CodeMirror-gutters {
+    background-color: #fcf0f2 !important;
+    border-right: 1px solid #f0dce0 !important;
+  }
+  .CodeMirror-linenumber { color: #a67c85 !important; }
+  .CodeMirror-cursor { border-left: 1px solid #d91e42 !important; }
+  .CodeMirror-selected { background-color: #fcf0f2 !important; }
+  .CodeMirror-activeline-background { background-color: #fcf0f2 !important; }
+  .CodeMirror-matchingbracket {
+    color: #d91e42 !important;
+    outline: 1px solid #d91e42 !important;
+  }
+
+  /* Diff */
+  .blob-code-addition { background-color: #e6f4e6 !important; }
+  .blob-code-deletion { background-color: #fce6ea !important; }
+  .blob-num-addition { background-color: #e6f4e6 !important; }
+  .blob-num-deletion { background-color: #fce6ea !important; }
+
+  /* Scrollbar */
   ::-webkit-scrollbar { width: 10px; background: #ffffff; }
   ::-webkit-scrollbar-thumb { background: #e8c8d0; border-radius: 5px; }
   ::-webkit-scrollbar-thumb:hover { background: #d91e42; }
 
-  /* Sticker */
+  /* ─── Sticker ─────────────────────────────────────────── */
   .application-main::before {
     content: "";
     position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 350px;
-    height: 350px;
+    bottom: -20px;
+    right: -20px;
+    width: 220px;
+    height: 220px;
     background-image: url('https://raw.githubusercontent.com/Andresito-oficial/Kurumi-Theme-for-Github/main/assets/kurumi.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom right;
     pointer-events: none;
     z-index: 9999;
-    opacity: 0.9; /* Un pelín más sutil en modo claro */
+    opacity: 0.75;
   }
 }
