@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Kurumi-Theme: Nightmare (Dark)
 @namespace      github.com/Andresito-oficial
-@version        1.1.0
+@version        2.0.0
 @description    Tokisaki Kurumi dark theme for GitHub — crimson & black
 @author         Andrés
 @license        MIT
@@ -12,116 +12,316 @@
                domain("githubusercontent.com"),
                domain("www.githubstatus.com") {
 
-  :root {
-    /* ── Fondos ─────────────────────────────────────────── */
-    --color-bg-canvas: #050000 !important;
+  /* ─── Variables base ─────────────────────────────────────── */
+  :root,
+  [data-color-mode="dark"],
+  [data-color-mode="light"],
+  [data-dark-theme="dark"],
+  [data-light-theme="dark"] {
+    color-scheme: dark !important;
+
+    /* Canvas / fondos */
+    --color-canvas-default: #050000 !important;
+    --color-canvas-subtle: #0f0f0f !important;
     --color-canvas-inset: #0f0f0f !important;
     --color-canvas-overlay: #0a0000 !important;
+    --color-bg-canvas: #050000 !important;
+    --color-bg-canvas-inset: #0f0f0f !important;
+    --color-bg-canvas-overlay: #0a0000 !important;
     --color-bg-primary: #050000 !important;
     --color-bg-secondary: #0f0f0f !important;
     --color-bg-tertiary: #0a0000 !important;
-    --color-canvas-subtle: #0f0f0f !important;
-    --color-bg-discussions-row-emoji-box: #0f0f0f !important;
-    --color-workflow-card-bg: #0f0f0f !important;
-    --color-calendar-graph-day-bg: #0f0f0f !important;
-    --color-checks-step-header-open-bg: #0f0f0f !important;
+    --color-bg-inset: #0f0f0f !important;
+    --color-bg-subtle: #0f0f0f !important;
+    --color-bg-emphasis: #1a0a0a !important;
+    --color-bg-overlay: #0a0000 !important;
+    --color-bg-disabled: #0a0000 !important;
+    --color-page-header-bg: #0a0000 !important;
 
-    /* ── Texto ──────────────────────────────────────────── */
+    /* Texto */
     --color-fg-default: #ffb8c6 !important;
     --color-fg-muted: #a67c85 !important;
+    --color-fg-subtle: #7a5560 !important;
+    --color-fg-on-emphasis: #050000 !important;
     --color-text-primary: #ffb8c6 !important;
-    --color-text-link: #ff003c !important;
     --color-text-secondary: #a67c85 !important;
+    --color-text-tertiary: #7a5560 !important;
+    --color-text-link: #ff003c !important;
+    --color-text-inverse: #050000 !important;
+    --color-text-disabled: #4a3038 !important;
 
-    /* ── Acento ─────────────────────────────────────────── */
+    /* Acento carmesí */
     --color-accent-fg: #ff003c !important;
+    --color-accent-emphasis: #ff003c !important;
+    --color-accent-muted: #2a0008 !important;
     --color-accent-subtle: #2a0008 !important;
-    --color-btn-primary-bg: #ff003c !important;
-    --color-btn-primary-hover-bg: #cc0030 !important;
-    --color-btn-primary-fg: #050000 !important;
-    --color-btn-primary-icon: #050000 !important;
-    --color-btn-primary-border: #ff003c !important;
 
-    /* ── Botones ────────────────────────────────────────── */
-    --color-btn-bg: #0f0f0f !important;
-    --color-btn-hover-bg: #1a0a0a !important;
-    --color-btn-border: #4a1a24 !important;
-    --color-btn-text: #ffb8c6 !important;
-    --color-btn-counter-bg: #2a0008 !important;
-
-    /* ── Bordes ─────────────────────────────────────────── */
+    /* Bordes */
     --color-border-default: #4a1a24 !important;
     --color-border-muted: #331111 !important;
     --color-border-subtle: #2a0008 !important;
+    --color-border-primary: #4a1a24 !important;
+    --color-border-secondary: #331111 !important;
+    --color-border-tertiary: #2a0008 !important;
+    --color-border-overlay: #4a1a24 !important;
+    --color-border-inverse: #050000 !important;
     --color-avatar-border: transparent !important;
 
-    /* ── Estados ────────────────────────────────────────── */
-    --color-attention-subtle: #2a0008 !important;
+    /* Botones */
+    --color-btn-text: #ffb8c6 !important;
+    --color-btn-bg: #0f0f0f !important;
+    --color-btn-border: #4a1a24 !important;
+    --color-btn-hover-bg: #1a0a0a !important;
+    --color-btn-hover-border: #6a2030 !important;
+    --color-btn-active-bg: #2a0008 !important;
+    --color-btn-active-border: #ff003c !important;
+    --color-btn-selected-bg: #2a0008 !important;
+    --color-btn-counter-bg: #2a0008 !important;
+    --color-btn-primary-text: #050000 !important;
+    --color-btn-primary-bg: #ff003c !important;
+    --color-btn-primary-border: #ff003c !important;
+    --color-btn-primary-hover-bg: #cc0030 !important;
+    --color-btn-primary-hover-border: #cc0030 !important;
+    --color-btn-primary-selected-bg: #990024 !important;
+    --color-btn-primary-disabled-text: #050000 !important;
+    --color-btn-primary-disabled-bg: #4a1a24 !important;
+    --color-btn-primary-disabled-border: #4a1a24 !important;
+    --color-btn-primary-icon: #050000 !important;
+    --color-btn-danger-text: #ffb8c6 !important;
+    --color-btn-danger-bg: #0f0f0f !important;
+    --color-btn-danger-hover-bg: #2a0008 !important;
+    --color-btn-danger-hover-text: #ff003c !important;
+
+    /* Inputs */
+    --color-input-bg: #0f0f0f !important;
+    --color-input-border: #4a1a24 !important;
+    --color-input-contrast-bg: #050000 !important;
+    --color-input-disabled-bg: #0a0000 !important;
+    --color-input-disabled-border: #331111 !important;
+    --color-input-checkbox-bg: #0f0f0f !important;
+    --color-input-warning-border: #E3B341 !important;
+    --color-input-error-border: #ff003c !important;
+
+    /* Estados / alerts */
+    --color-attention-fg: #E3B341 !important;
+    --color-attention-emphasis: #E3B341 !important;
     --color-attention-muted: #4a1a24 !important;
+    --color-attention-subtle: #2a0008 !important;
     --color-danger-fg: #ff003c !important;
     --color-danger-emphasis: #ff003c !important;
+    --color-danger-muted: #4a1a24 !important;
+    --color-danger-subtle: #2a0008 !important;
     --color-success-fg: #E3B341 !important;
     --color-success-emphasis: #E3B341 !important;
+    --color-success-muted: #2a2010 !important;
+    --color-success-subtle: #2a2010 !important;
+    --color-done-fg: #ff003c !important;
+    --color-done-emphasis: #ff003c !important;
+    --color-alert-warn-bg: #2a2010 !important;
+    --color-alert-info-bg: #0f0f0f !important;
+    --color-alert-error-bg: #2a0008 !important;
 
-    /* ── Sombras ────────────────────────────────────────── */
-    --color-shadow-large: 0 8px 24px #000000 !important;
-    --color-shadow-medium: 0 3px 6px #000000 !important;
-    --color-shadow-small: 0 1px 0 #000000 !important;
+    /* Sombras */
+    --color-shadow-small: 0 1px 0 #000 !important;
+    --color-shadow-medium: 0 3px 6px #000 !important;
+    --color-shadow-large: 0 8px 24px #000 !important;
+    --color-shadow-extra-large: 0 12px 28px #000 !important;
+    --color-primer-shadow-focus: 0 0 0 3px #ff003c40 !important;
+    --color-primer-shadow-inset: inset 0 1px 0 #000 !important;
 
-    /* ── Extras ─────────────────────────────────────────── */
+    /* Checks / actions */
+    --color-checks-bg: #050000 !important;
+    --color-checks-run-border-width: 0 !important;
+    --color-checks-container-border-width: 0 !important;
+    --color-checks-text-primary: #ffb8c6 !important;
+    --color-checks-text-secondary: #a67c85 !important;
+    --color-checks-text-link: #ff003c !important;
+    --color-checks-btn-icon: #a67c85 !important;
+    --color-checks-btn-hover-icon: #ffb8c6 !important;
+    --color-checks-btn-hover-bg: #1a0a0a !important;
+    --color-checks-input-text: #ffb8c6 !important;
+    --color-checks-input-placeholder-text: #7a5560 !important;
+    --color-checks-input-focus-text: #ffb8c6 !important;
+    --color-checks-input-bg: #0f0f0f !important;
+    --color-checks-input-shadow: 0 0 0 1px #4a1a24 !important;
+    --color-checks-dropdown-text: #ffb8c6 !important;
+    --color-checks-dropdown-bg: #0f0f0f !important;
+    --color-checks-dropdown-border: #4a1a24 !important;
+    --color-checks-dropdown-shadow: 0 8px 24px #000 !important;
+    --color-checks-dropdown-hover-text: #ffb8c6 !important;
+    --color-checks-dropdown-hover-bg: #1a0a0a !important;
+    --color-checks-dropdown-btn-hover-text: #ffb8c6 !important;
+    --color-checks-dropdown-btn-hover-bg: #1a0a0a !important;
+    --color-checks-scrollbar-thumb-bg: #4a1a24 !important;
+    --color-checks-header-label-text: #ffb8c6 !important;
+    --color-checks-header-label-open-text: #ffb8c6 !important;
+    --color-checks-header-border: #331111 !important;
+    --color-checks-header-icon: #a67c85 !important;
+    --color-checks-line-text: #a67c85 !important;
+    --color-checks-line-num-text: #a67c85 !important;
+    --color-checks-line-timestamp-text: #7a5560 !important;
+    --color-checks-line-hover-bg: #1a0a0a !important;
+    --color-checks-line-selected-bg: #2a0008 !important;
+    --color-checks-line-selected-num-text: #ff003c !important;
+    --color-checks-line-dt-fm-text: #050000 !important;
+    --color-checks-line-dt-fm-bg: #E3B341 !important;
+    --color-checks-gate-bg: #2a2010 !important;
+    --color-checks-gate-text: #ffb8c6 !important;
+    --color-checks-gate-waiting-text: #E3B341 !important;
+    --color-checks-step-header-open-bg: #0f0f0f !important;
+    --color-checks-step-error-text: #ff003c !important;
+    --color-checks-step-warning-text: #E3B341 !important;
+    --color-checks-logline-text: #a67c85 !important;
+    --color-checks-logline-num-text: #7a5560 !important;
+    --color-checks-logline-debug-text: #ff003c !important;
+    --color-checks-logline-error-text: #ffb8c6 !important;
+    --color-checks-logline-error-num-text: #ff003c !important;
+    --color-checks-logline-error-bg: #2a0008 !important;
+    --color-checks-logline-warning-text: #ffb8c6 !important;
+    --color-checks-logline-warning-num-text: #E3B341 !important;
+    --color-checks-logline-warning-bg: #2a2010 !important;
+    --color-checks-logline-command-text: #ff003c !important;
+    --color-checks-logline-section-text: #ffb8c6 !important;
+    --color-checks-ansi-black: #050000 !important;
+    --color-checks-ansi-black-bright: #0f0f0f !important;
+    --color-checks-ansi-white: #ffb8c6 !important;
+    --color-checks-ansi-white-bright: #ffb8c6 !important;
+    --color-checks-ansi-gray: #a67c85 !important;
+    --color-checks-ansi-red: #ff003c !important;
+    --color-checks-ansi-red-bright: #ff003c !important;
+    --color-checks-ansi-green: #E3B341 !important;
+    --color-checks-ansi-green-bright: #E3B341 !important;
+    --color-checks-ansi-yellow: #E3B341 !important;
+    --color-checks-ansi-yellow-bright: #E3B341 !important;
+    --color-checks-ansi-blue: #ff003c !important;
+    --color-checks-ansi-blue-bright: #ff003c !important;
+    --color-checks-ansi-magenta: #ff003c !important;
+    --color-checks-ansi-magenta-bright: #ff003c !important;
+    --color-checks-ansi-cyan: #a67c85 !important;
+    --color-checks-ansi-cyan-bright: #ffb8c6 !important;
+
+    /* Calendario de contribuciones */
+    --color-calendar-graph-day-bg: #0f0f0f !important;
+    --color-calendar-graph-day-border: #331111 !important;
+    --color-calendar-graph-day-L1-bg: #4a1a24 !important;
+    --color-calendar-graph-day-L1-border: #4a1a24 !important;
+    --color-calendar-graph-day-L2-bg: #8a1030 !important;
+    --color-calendar-graph-day-L2-border: #8a1030 !important;
+    --color-calendar-graph-day-L3-bg: #cc0030 !important;
+    --color-calendar-graph-day-L3-border: #cc0030 !important;
+    --color-calendar-graph-day-L4-bg: #ff003c !important;
+    --color-calendar-graph-day-L4-border: #ff003c !important;
+
+    /* Notificaciones */
+    --color-notifications-row-read-bg: #0f0f0f !important;
+    --color-notifications-row-bg: #050000 !important;
+
+    /* Otros */
+    --color-verified-badge-bg: #0f0f0f !important;
+    --color-project-sidebar-bg: #0a0000 !important;
+    --color-workflow-card-bg: #0f0f0f !important;
+    --color-bg-discussions-row-emoji-box: #0f0f0f !important;
     --color-previewable-comment-form-bg: #0f0f0f !important;
     --color-avatar-bg: #0f0f0f !important;
     --color-user-mention-bg: #2a0008 !important;
     --color-user-mention-fg: #ffb8c6 !important;
     --color-search-hover-hl: #0f0f0f !important;
-    --color-current-user-tip-border: #0f0f0f !important;
+    --color-current-user-tip-border: #331111 !important;
     --color-underlinenav-counter-text: #ffb8c6 !important;
     --color-auto-gray-1: #0a0000 !important;
     --color-auto-gray-3: #0a0000 !important;
+    --color-primer-fg-disabled: #4a3038 !important;
+    --lightness-threshold: 0.453 !important;
   }
 
-  /* ── Ajustes finos ────────────────────────────────────── */
-  body { 
-    background: var(--color-bg-canvas) !important; 
+  /* Forzar el modo oscuro también en el atributo data-theme */
+  [data-color-mode="light"][data-light-theme*="dark"],
+  [data-color-mode="dark"][data-dark-theme*="dark"] {
+    color-scheme: dark !important;
   }
-  
-  /* Header y barra de búsqueda */
-  .Header, .header, .AppHeader { 
-    background-color: #0a0000 !important; 
-    border-bottom: 1px solid #4a1a24 !important; 
+
+  /* ─── Ajustes finos ─────────────────────────────────────── */
+  body {
+    background-color: #050000 !important;
   }
-  
-  .header-search-input, .form-control {
+
+  .Header, .header, .AppHeader, [data-testid="top-nav"] {
+    background-color: #0a0000 !important;
+    border-bottom: 1px solid #4a1a24 !important;
+  }
+
+  .header-search-input, .form-control, .form-select {
     background-color: #0f0f0f !important;
     border-color: #4a1a24 !important;
     color: #ffb8c6 !important;
   }
 
-  /* Logo de GitHub en carmesí */
   .octicon-mark-github {
     color: #ff003c !important;
   }
 
-  .markdown-body { 
-    color: #ffb8c6 !important; 
+  .markdown-body {
+    color: #ffb8c6 !important;
   }
-  
-  .markdown-body a { 
-    color: #ff003c !important; 
+
+  .markdown-body a {
+    color: #ff003c !important;
   }
-  
-  pre, code { 
-    background: #0f0f0f !important; 
-    border-color: #331111 !important; 
-    color: #ffb8c6 !important; 
+
+  pre, code, .blob-code, .blob-code-inner {
+    background-color: #0f0f0f !important;
+    border-color: #331111 !important;
+    color: #ffb8c6 !important;
   }
+
+  /* ─── CodeMirror (editor de código en PRs y archivos) ──── */
+  .CodeMirror {
+    background-color: #0f0f0f !important;
+    color: #ffb8c6 !important;
+  }
+
+  .CodeMirror-gutters {
+    background-color: #0a0000 !important;
+    border-right: 1px solid #331111 !important;
+  }
+
+  .CodeMirror-linenumber {
+    color: #7a5560 !important;
+  }
+
+  .CodeMirror-cursor {
+    border-left: 1px solid #ff003c !important;
+  }
+
+  .CodeMirror-selected {
+    background-color: #2a0008 !important;
+  }
+
+  .CodeMirror-activeline-background {
+    background-color: #0a0000 !important;
+  }
+
+  .CodeMirror-matchingbracket {
+    color: #ff003c !important;
+    outline: 1px solid #ff003c !important;
+  }
+
+  /* Diff inline */
+  .blob-code-addition {
+    background-color: #1a3a1a !important;
+  }
+  .blob-code-deletion {
+    background-color: #3a0a1a !important;
+  }
+  .blob-num-addition { background-color: #1a3a1a !important; }
+  .blob-num-deletion { background-color: #3a0a1a !important; }
 
   /* Scrollbar */
   ::-webkit-scrollbar { width: 10px; background: #050000; }
   ::-webkit-scrollbar-thumb { background: #4a1a24; border-radius: 5px; }
   ::-webkit-scrollbar-thumb:hover { background: #ff003c; }
 
-  /* ── Sticker ──────────────────────────────────────────── */
+  /* ─── Sticker ─────────────────────────────────────────── */
   .application-main::before {
     content: "";
     position: fixed;
