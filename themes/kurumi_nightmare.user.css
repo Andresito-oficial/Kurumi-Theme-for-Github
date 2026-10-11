@@ -1,11 +1,11 @@
 /* ==UserStyle==
 @name           Kurumi-Theme: Nightmare (Dark)
-@namespace      github.com/kurumi-desk
+@namespace      github.com/Andresito-oficial
 @version        1.1.0
 @description    Tokisaki Kurumi dark theme for GitHub — crimson & black
 @author         Andrés
 @license        MIT
-@homepageURL    https://github.com/tu-usuario/kurumi-theme-github
+@homepageURL    https://github.com/Andresito-oficial/Kurumi-Theme-for-Github
 ==/UserStyle== */
 
 @-moz-document regexp("^https?://((education|gist|graphql|guides|help|lab|raw|resources|status|developer|support|vscode-auth)\\.)?github\\.com/((?!generated_pages/preview).)*$"),
@@ -80,30 +80,61 @@
     --color-auto-gray-3: #0a0000 !important;
   }
 
-  body { background: var(--color-bg-canvas) !important; }
-  .Header, .header { background: #0a0000 !important; border-bottom: 1px solid #4a1a24 !important; }
-  .markdown-body { color: #ffb8c6 !important; }
-  .markdown-body a { color: #ff003c !important; }
-  pre, code { background: #0f0f0f !important; border-color: #331111 !important; color: #ffb8c6 !important; }
+  /* ── Ajustes finos ────────────────────────────────────── */
+  body { 
+    background: var(--color-bg-canvas) !important; 
+  }
+  
+  /* Header y barra de búsqueda */
+  .Header, .header, .AppHeader { 
+    background-color: #0a0000 !important; 
+    border-bottom: 1px solid #4a1a24 !important; 
+  }
+  
+  .header-search-input, .form-control {
+    background-color: #0f0f0f !important;
+    border-color: #4a1a24 !important;
+    color: #ffb8c6 !important;
+  }
 
+  /* Logo de GitHub en carmesí */
+  .octicon-mark-github {
+    color: #ff003c !important;
+  }
+
+  .markdown-body { 
+    color: #ffb8c6 !important; 
+  }
+  
+  .markdown-body a { 
+    color: #ff003c !important; 
+  }
+  
+  pre, code { 
+    background: #0f0f0f !important; 
+    border-color: #331111 !important; 
+    color: #ffb8c6 !important; 
+  }
+
+  /* Scrollbar */
   ::-webkit-scrollbar { width: 10px; background: #050000; }
   ::-webkit-scrollbar-thumb { background: #4a1a24; border-radius: 5px; }
   ::-webkit-scrollbar-thumb:hover { background: #ff003c; }
 
-  /* Sticker */
+  /* ── Sticker ──────────────────────────────────────────── */
   .application-main::before {
     content: "";
     position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 350px;
-    height: 350px;
+    bottom: -20px;
+    right: -20px;
+    width: 220px;
+    height: 220px;
     background-image: url('https://raw.githubusercontent.com/Andresito-oficial/Kurumi-Theme-for-Github/main/assets/kurumi.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom right;
     pointer-events: none;
     z-index: 9999;
-    opacity: 0.95;
+    opacity: 0.75;
   }
 }
